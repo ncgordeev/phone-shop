@@ -1,19 +1,10 @@
-import os
-
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from PIL import Image
 
 from users.models import CustomUser
-from utils.utils import NULLABLE
-
-
-def validate_image(image):
-    valid_extensions = ['jpg', 'jpeg', 'png', 'webp']
-    ext = os.path.splitext(image.name)[1].lower()
-    if ext not in valid_extensions:
-        raise ValidationError(_(f'Unsupported file type {ext}. Supported types: {", ".join(valid_extensions)}'))
+from utils.utils import NULLABLE, validate_image
 
 
 class Category(models.Model):
