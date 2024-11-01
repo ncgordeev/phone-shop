@@ -1,0 +1,29 @@
+<!doctype html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href='{% static "main/css/bootstrap.min.css" %}' rel="stylesheet">
+</head>
+<body>
+<div class="container text-center">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.first_name.label_tag }}
+        {{ form.first_name }}
+        {{ form.last_name.label_tag }}
+        {{ form.last_name }}
+        {{ form.phone.label_tag }}
+        {{ form.phone }}
+        {{ form.email.label_tag }}
+        {{ form.email }}
+        {{ form.avatar.label_tag }}
+        {{ form.avatar }}
+        <button class="btn btn-primary" type="submit">Сохранить</button>
+    </form>
+</div>
+<script src='{% static "main/js/bootstrap.bundle.min.js" %}'></script>
+</body>
+</html>
